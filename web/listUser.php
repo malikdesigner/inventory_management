@@ -1,8 +1,9 @@
 <?php include_once "header.php" ?>
 
 <style>
-    body {
+   body {
         background-color: #f5f5f5;
+        overflow-x: hidden;
     }
 
     .custom-text-color {

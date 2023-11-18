@@ -43,6 +43,9 @@ function getAllProducts()
 $products = getAllProducts();
 ?>
 <style>
+    body {
+        overflow-x: hidden;
+    }
     .toast-container {
         position: fixed;
         top: 10%;

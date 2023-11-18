@@ -32,8 +32,9 @@ $product = getAllProducts();
 ?>
 
 <style>
-    body {
+   body {
         background-color: #f5f5f5;
+        overflow-x: hidden;
     }
 
     .custom-file-upload-btn {
