@@ -5,12 +5,12 @@ use PHPMailer\PHPMailer\Exception;
 
 $mail = new PHPMailer;
 
-$mail->From = "navidml6453@gmail.com";
+$mail->From = ""; //enter your email 
 $mail->FromName = "Full Name";
 $mail->isSMTP();
 $mail->SMTPAuth = true;
-$mail->Username = 'navidml6453@gmail.com';
-$mail->Password = 'wpjq rmid qksg zqqd';
+$mail->Username = 'Inventory Management';
+$mail->Password = ''; //create an app password using gmail account setting an set that here
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
