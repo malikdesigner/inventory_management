@@ -31,7 +31,7 @@ while ($row = $result->fetch_assoc()) {
     $emails[$userID] = $row['email'];
 }
 
-$sql = "SELECT a.*, b.name as username FROM `tbl_products` AS a JOIN `tbl_users` AS b ON a.added_by = b.id where a.count<2";
+$sql = "SELECT a.*, b.name as username FROM `tbl_products` AS a JOIN `tbl_users` AS b ON a.added_by = b.id where a.count<10";
 $result = $conn->query($sql);
 while ($row = $result->fetch_assoc()) {
     $productID = $row['id'];

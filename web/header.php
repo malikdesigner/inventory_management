@@ -105,7 +105,7 @@ function getEmptyProduct()
 {
     global $conn;
     $userID = $_SESSION['userdata'][0]['id'];
-    $query = "SELECT * FROM tbl_products WHERE added_by = $userID AND count < =1";
+    $query = "SELECT * FROM tbl_products WHERE added_by = $userID AND count < 5";
     $result = mysqli_query($conn, $query);
     ob_start();
 
@@ -152,8 +152,10 @@ function getEmptyProduct()
 
     return ob_get_clean();
 }
+if(isset($_SESSION['userdata'])){
 
-$productHTML = getEmptyProduct();
+    $productHTML = getEmptyProduct();
+}
 ?>
 
 <body>

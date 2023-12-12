@@ -11,7 +11,7 @@ if (empty($_SESSION['userdata'])) {
     echo '<meta http-equiv="refresh" content="0;url=listProducts.php">';
     exit();
 }
-if (empty($_SESSION['userdata'][0]['role']!='admin')) {
+if ($_SESSION['userdata'][0]['role']!='admin') {
     echo '<meta http-equiv="refresh" content="0;url=listProducts.php">';
     exit();
 }

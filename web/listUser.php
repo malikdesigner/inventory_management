@@ -1,4 +1,6 @@
-<?php include_once "header.php" ?>
+<?php include_once "header.php";
+
+?>
 
 <style>
    body {
@@ -15,7 +17,7 @@ if (empty($_SESSION)) {
     echo '<meta http-equiv="refresh" content="0;url=listProducts.php">';
     exit();
 }
-if (empty($_SESSION['userdata'][0]['role'] != 'admin')) {
+if ($_SESSION['userdata'][0]['role'] != 'admin') {
     echo '<meta http-equiv="refresh" content="0;url=listProducts.php">';
     exit();
 }

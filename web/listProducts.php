@@ -374,18 +374,29 @@ $products = getAllProducts();
             },
             success: function(response) {
                 var res = JSON.parse(response);
-
-                if (res.msg === 'success') {
-                    $('#checkoutModalBody').empty();
-                    displayToast('Order placed successfully!');
+                console.log(res);
+                if (res.msg == "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Product updated successfully!',
+                    }).then((result) => {
+                        if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+                            location.reload();
+                        }
+                    });
                 } else {
-                    displayToast('An error occurred while placing your order. Please try again later.');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Failed to update product. ' + res.message,
+                    });
                 }
                 $('#checkoutTotalDiv').empty();
                 $('#checkoutModal').modal('hide');
                 $('.loader-container').css('display', 'none');
                 setTimeout(function() {
-                    window.location.reload();
+                   // window.location.reload();
                 }, 500);
             },
             error: function(xhr, status, error) {

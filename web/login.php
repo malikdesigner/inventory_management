@@ -22,6 +22,8 @@
     <link rel="stylesheet" type="text/css" href="./assets/assets/daterangepicker.css" />
     <!-- custom date picker -->
     <link href="./assets/assets/enjoyhint3.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <!-- Flag Pickers -->
     <link href="./assets/assets/flags.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
@@ -281,8 +283,6 @@
     function verifyLogin() {
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
-        alert(username);
-        alert(password);
         if (username !== "" && password !== "") {
             $.ajax({
                 url: 'ajax.php',
@@ -295,7 +295,6 @@
                 success: function(data) {
                     var response = JSON.parse(data);
                     if (response.msg == "success") {
-                        alert("Success");
                         window.location.href = 'listUser.php';
 
                     } else {
