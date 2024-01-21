@@ -266,7 +266,7 @@ if (isset($_POST['action'])) {
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        try{
+        try {
 
             foreach ($orderDetails as $orderDetail) {
                 $productId = $orderDetail['productId'];
@@ -274,14 +274,17 @@ if (isset($_POST['action'])) {
                 $sql = "UPDATE tbl_products SET count = count - $count WHERE id = $productId";
                 $conn->query($sql);
             }
-            echo json_encode(['msg' => 'success']);
-        }
-        catch(Exception $e){
+          
+            // if ($returnCode == 0) {
+            //     echo json_encode(['msg' => 'success']);
+            // } else {
+            //     echo json_encode(['msg' => 'fail']);
+            // }
+             echo json_encode(['msg' => 'success']);
+        } catch (Exception $e) {
             echo json_encode(['msg' => 'error', 'message' => $conn->error]);
             exit;
-
         }
-       
     }
     if ($_POST['action'] == "deleteProduct") {
         if (isset($_POST['id'])) {

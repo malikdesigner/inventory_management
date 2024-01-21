@@ -1,20 +1,23 @@
 <?php
-require_once "./vendor/autoload.php";
+// require_once "./vendor/autoload.php";
+require_once "C:/xampp/htdocs/inventory_management/vendor/autoload.php";
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 $mail = new PHPMailer;
 
-$mail->From = ""; //enter your email 
-$mail->FromName = "Full Name";
+$mail->From = "inventorym96@gmail.com"; //enter your email 
+$mail->FromName = "Inventory Manaagement";
 $mail->isSMTP();
 $mail->SMTPAuth = true;
-$mail->Username = 'Inventory Management';
-$mail->Password = ''; //create an app password using gmail account setting an set that here
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+$mail->Username = 'inventorym96@gmail.com';
+$mail->Password = 'vcrpyhoppbakshnk';
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->Host = 'smtp.gmail.com';
-$mail->Port = 587;
-$mail->SMTPDebug = 2;
+ //$mail->Port = 587;
+$mail->Port = 465;
+// $mail->SMTPDebug =2;
 $servername = "localhost";
 $username = "root";
 $password = "QWERT!@#$%";
@@ -24,7 +27,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM `tbl_users` WHERE role = 'client'";
+$sql = "SELECT * FROM `tbl_users`";
 $result = $conn->query($sql);
 while ($row = $result->fetch_assoc()) {
     $userID = $row['id'];
@@ -47,10 +50,9 @@ while ($row = $result->fetch_assoc()) {
 
     $productName[$productID]['username'] = $row['username'];
 }
-
 foreach ($productName as $productID => $details) {
     $sendTo = $emails[$details['added_by']];
-
+    print_r($sendTo);
     $mail->addAddress($sendTo, $details['username']);
 
     $mail->isHTML(true);

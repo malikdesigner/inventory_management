@@ -3,7 +3,7 @@ function getAllProducts()
 {
     global $conn;
 
-    $sql = "SELECT * FROM tbl_products";
+    $sql = "SELECT * FROM tbl_products where count>0";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -141,7 +141,7 @@ $products = getAllProducts();
                     <div class="card ">
                         <div class="card-img-actions product-card">
                             <a href="<?php echo $product['file']; ?>" data-popup="lightbox">
-                                <img src="<?php echo $product['file']; ?>" class="card-img" alt="Product Image">
+                                <img src="<?php echo $product['file']; ?>" style="height: 200px;" class="card-img" alt="Product Image">
                                 <div class="overlay">
                                     <i class="icon-plus3 icon-2x"></i>
                                 </div>
@@ -158,12 +158,8 @@ $products = getAllProducts();
                             </div>
                             <h3 class="product-price mb-0 font-weight-semibold"> $<?php echo $product['price']; ?></h3>
 
-                            <p> <?php echo $product['mileage']; ?> KM</p>
-                            <p> <?php if ($product['transmission'] == 'auto') {
-                                    echo 'Automatic Transmission';
-                                } else {
-                                    echo "Manual Transmission";
-                                } ?></p>
+                            <p> <?php echo $product['transmission'] 
+                                     ?></p>
                             <p class="text-muted mb-3"><strong>Items Left: </strong> <?php echo $product['count']; ?></p>
                             <p class="product-description"><?php echo $product['description']; ?></p>
                             <button class="btn btn-primary" onclick="addToCart(<?php echo $product['id']; ?>)"><i class="fa fa-shopping-cart mr-"></i>Add to Cart</button>

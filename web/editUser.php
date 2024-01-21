@@ -11,7 +11,7 @@ if (empty($_SESSION['userdata'])) {
     echo '<meta http-equiv="refresh" content="0;url=listProducts.php">';
     exit();
 }
-if ($_SESSION['userdata'][0]['role']!='admin') {
+if ($_SESSION['userdata'][0]['role']!='superAdmin') {
     echo '<meta http-equiv="refresh" content="0;url=listProducts.php">';
     exit();
 }
@@ -56,12 +56,12 @@ if ($result->num_rows > 0) {
             <label for="role">Select the role</label>
             <select id="role" class="form-control">
                 <option value="">Select the role</option>
+                <option value="superAdmin" <?php if ($data[0]["role"] == "superAdmin") {
+                                            echo "selected";
+                                        } ?>>Super Admin</option>
                 <option value="admin" <?php if ($data[0]["role"] == "admin") {
                                             echo "selected";
                                         } ?>>Admin</option>
-                <option value="client" <?php if ($data[0]["role"] == "client") {
-                                            echo "selected";
-                                        } ?>>Client</option>
 
             </select>
         </div>

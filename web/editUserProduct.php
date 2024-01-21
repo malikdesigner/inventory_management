@@ -101,14 +101,14 @@ $product = getAllProducts();
     <div class="card-body">
         <div class="form-group mb-5">
             <label for="name">Name</label>
-            <input class="form-control" type="text" id="name" placeholder="Enter car name" value="<?= $product[0]['name']  ?>" />
+            <input class="form-control" type="text" id="name" placeholder="Enter car part name" value="<?= $product[0]['name']  ?>" />
         </div>
         <div class="form-group mb-5">
             <label for="variant">Make/Model/Variant</label>
-            <input class="form-control" type="text" id="variant" value="<?= $product[0]['variant']  ?>" placeholder="Enter car make model variant" />
+            <input class="form-control" type="text" id="variant" value="<?= $product[0]['variant']  ?>" placeholder="Enter car part make model variant" />
         </div>
         <div class="form-group mb-5">
-            <label for="color">Select Color</label>
+            <label for="color">Select Color of part</label>
             <select class="form-control" id="color">
                 <?php
                 $colors = array("red", "white", "blue", "green", "yellow", "orange", "purple", "pink", "brown", "cyan", "magenta", "teal", "indigo", "lime", "maroon", "navy", "olive", "silver", "violet", "gold", "coral");
@@ -120,47 +120,43 @@ $product = getAllProducts();
                         echo ' selected';
                     }
                     echo '>';
-                    echo ucfirst($color); // Display color name with the first letter capitalized
+                    echo ucfirst($color); 
                     echo '</option>';
                 }
                 ?>
             </select>
         </div>
 
-        <div class="form-group mb-5">
+        <!-- <div class="form-group mb-5">
             <label for="mileage"> Mileage</label>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">KM</span>
                 </div>
-                <input class="form-control" type="text" id="mileage" value="<?= $product[0]['mileage']  ?>" placeholder="Enter car mileage" />
+                <input class="form-control" type="text" id="mileage" value="<?= $product[0]['mileage']  ?>" placeholder="Enter car part mileage" />
             </div>
-        </div>
+        </div> -->
         <div class="form-group mb-5">
             <label for="price"> Price</label>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">USD</span>
                 </div>
-                <input class="form-control" type="text" id="price" value="<?= $product[0]['price']  ?>" placeholder="Enter car price" />
+                <input class="form-control" type="text" id="price" value="<?= $product[0]['price']  ?>" placeholder="Enter car part price" />
             </div>
         </div>
         <div class="form-group mb-5">
-            <label for="transmission">Select the transmission</label>
-            <select id="transmission" class="form-control">
-                <option value="">Select the transmission</option>
-                <option value="auto" <?php if ($product[0]['transmission'] == 'auto') echo 'selected' ?>>Automatic</option>
-                <option value="manual" <?php if ($product[0]['transmission'] == 'manual') echo 'selected' ?>>Manual</option>
+            <label for="transmission">Add the car </label>
+            <input class="form-control" type="text" id="price" value="<?= $product[0]['transmission']  ?>" placeholder="Enter car  name" />
 
-            </select>
         </div>
         <div class="form-group mb-5">
             <label for="description">Description</label>
-            <textarea class="form-control" rows="3" cols="3" id="description" placeholder="Enter car description"><?= $product[0]['description'] ?></textarea>
+            <textarea class="form-control" rows="3" cols="3" id="description" placeholder="Enter car part description"><?= $product[0]['description'] ?></textarea>
         </div>
         <div class="form-group mb-5">
             <label for="make">Number of items</label>
-            <input class="form-control" type="text" id="count" placeholder="Enter car count" value="<?= $product[0]['count']  ?>" />
+            <input class="form-control" type="text" id="count" placeholder="Enter car part count" value="<?= $product[0]['count']  ?>" />
         </div>
         <div class='form-input-box' id="date_input_box">
             <label for="description">Add Image</label>
@@ -206,7 +202,6 @@ $product = getAllProducts();
         var name = $('#name').val();
         var variant = $('#variant').val();
         var color = $('#color').val();
-        var mileage = $('#mileage').val();
         var price = $('#price').val();
         var transmission = $('#transmission').val();
         var description = $('#description').val();
@@ -271,13 +266,13 @@ $product = getAllProducts();
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please enter car name',
+                text: 'Please enter car part name',
             });
         } else if (color == "" || color == undefined) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please enter car color',
+                text: 'Please enter car part color',
             });
         } else if (file == "" || file == undefined) {
             Swal.fire({
@@ -289,7 +284,7 @@ $product = getAllProducts();
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please add car price',
+                text: 'Please add car part price',
             });
         }
     }

@@ -1,2 +1,3 @@
 crons/node_modules/
 vendor/*
+web/sendingEmail/node_modules/

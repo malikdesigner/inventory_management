@@ -173,7 +173,7 @@ if(isset($_SESSION['userdata'])){
 
         <?php if (isset($_SESSION['userdata'])) { ?>
             <ul class="navbar-nav ml-auto" style="margin-right: 2%;">
-                <?php if ($_SESSION['userdata'][0]['role'] == 'client') {
+                <?php if ($_SESSION['userdata'][0]['role'] == 'admin') {
                     echo $productHTML;
                 } ?>
 
@@ -185,7 +185,7 @@ if(isset($_SESSION['userdata'])){
                     </a>
                     <div class="dropdown-menu" id="userDropdownMenu" aria-labelledby="userDropdown">
                         <a href="#" class="dropdown-item"><i class="fa fa-user-plus mr-2"></i> My profile</a>
-                        <?php if ($_SESSION['userdata'][0]['role'] == 'admin') { ?>
+                        <?php if ($_SESSION['userdata'][0]['role'] == 'superAdmin') { ?>
                             <a href="listUser.php" class="dropdown-item"><i class="fa fa-users mr-2"></i> Users</a>
                         <?php } ?>
                         <a href="listUserProducts.php" class="dropdown-item"><i class="fa fa-bars mr-2"></i> Products</a>

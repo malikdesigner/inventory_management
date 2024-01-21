@@ -10,7 +10,7 @@ function getAllProducts()
     global $conn;
     $user_id = $_SESSION['userdata'][0]['id'];
     $role = $_SESSION['userdata'][0]['role'];
-    if ($role == 'admin') {
+    if ($role == 'superAdmin') {
 
         $sql = "SELECT * FROM tbl_products";
         $result = $conn->query($sql);
@@ -24,7 +24,7 @@ function getAllProducts()
         } else {
             return array();
         }
-    } else if ($role == 'client') {
+    } else if ($role == 'admin') {
         $sql = "SELECT * FROM tbl_products where added_by =$user_id";
         $result = $conn->query($sql);
 
@@ -109,21 +109,27 @@ $products = getAllProducts();
                                 <th colspan="2"> Action </th>
                             </tr>
                         </thead>
-                        <tbody <?php foreach ($products as $d) { ?> <tr>
+                        <tbody
+                        <?php if(!empty($products)): ?>
+                        <?php foreach ($products as $d) { ?> <tr>
                             <td><?= $d['id'] ?></td>
                             <td><?= $d['name'] ?></td>
-                            <td><?= $d['mileage'] ?></td>
                             <td><?= $d['variant'] ?></td>
-
                             <td><?= $d['color'] ?></td>
                             <td>$<?= $d['price'] ?></td>
-
                             <td><?= $d['transmission'] ?></td>
                             <td><?= $d['count'] ?></td>
                             <td><a href="editUserProduct.php?productID=<?= urlencode($d['id']) ?>" target='_blank'><i class='fa fa-edit mr-2 cursor-pointer'></i> </a></td>
                             <td><a href="#" onclick="deleteProduct(<?= urlencode($d['id']) ?>)"> <i class='fa fa-trash mr-2 cursor-pointer'></i> </a></td>
                             </tr>
                         <?php } ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="9">
+                                    <?php echo "No product found"; ?>
+                                </td>
+                            </tr>
+                            <?php endif; ?>
                         </tbody>
                     </table>
 

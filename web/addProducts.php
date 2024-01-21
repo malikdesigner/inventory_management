@@ -76,11 +76,11 @@ if (empty($_SESSION)) {
     <div class="card-body">
         <div class="form-group mb-5">
             <label for="name">Name</label>
-            <input class="form-control" type="text" id="name" placeholder="Enter car name" />
+            <input class="form-control" type="text" id="name" placeholder="Enter car part name" />
         </div>
         <div class="form-group mb-5">
             <label for="variant">Make/Model/Variant</label>
-            <input class="form-control" type="text" id="variant" placeholder="Enter car make model variant" />
+            <input class="form-control" type="text" id="variant" placeholder="Enter car part make model variant" />
         </div>
         <div class="form-group mb-5">
             <label for="color">Select Color</label>
@@ -105,7 +105,7 @@ if (empty($_SESSION)) {
                 <div class="input-group-prepend">
                     <span class="input-group-text">KM</span>
                 </div>
-                <input class="form-control" type="text" id="mileage" placeholder="Enter car mileage" />
+                <input class="form-control" type="text" id="mileage" placeholder="Enter car part mileage" />
             </div>
         </div>
         <div class="form-group mb-5">
@@ -114,26 +114,22 @@ if (empty($_SESSION)) {
                 <div class="input-group-prepend">
                     <span class="input-group-text">USD</span>
                 </div>
-                <input class="form-control" type="text" id="price" placeholder="Enter car price" />
+                <input class="form-control" type="text" id="price" placeholder="Enter car part price" />
             </div>
         </div>
         <div class="form-group mb-5">
-            <label for="transmission">Select the transmission</label>
-            <select id="transmission" class="form-control">
-                <option value="">Select the transmission</option>
-                <option value="auto">Automatic</option>
-                <option value="manual">Manual</option>
+            <label for="transmission">Car Name</label>
+            <input class="form-control" type="text" id="transmission" placeholder="Enter car  name" />
 
-            </select>
         </div>
         <div class="form-group mb-5">
             <label for="description">Description</label>
-            <textarea class="form-control" rows="3" cols="3" id="description" placeholder="Enter car description"></textarea>
+            <textarea class="form-control" rows="3" cols="3" id="description" placeholder="Enter car part description"></textarea>
 
         </div>
         <div class="form-group mb-5">
             <label for="make">Number of items</label>
-            <input class="form-control" type="text" id="count" placeholder="Enter car count11" />
+            <input class="form-control" type="text" id="count" placeholder="Enter car part count11" />
         </div>
         <div class='form-input-box' id="date_input_box">
             <label for="description">Add Image</label>
@@ -176,7 +172,7 @@ if (empty($_SESSION)) {
         var name = $('#name').val();
         var variant = $('#variant').val();
         var color = $('#color').val();
-        var mileage = $('#mileage').val();
+        // var mileage = $('#mileage').val();
         var price = $('#price').val();
         var transmission = $('#transmission').val();
         var description = $('#description').val();
@@ -191,7 +187,7 @@ if (empty($_SESSION)) {
             formData.append('name', $('#name').val());
             formData.append('variant', $('#variant').val());
             formData.append('color', $('#color').val());
-            formData.append('mileage', $('#mileage').val());
+            // formData.append('mileage', $('#mileage').val());
             formData.append('price', $('#price').val());
             formData.append('transmission', $('#transmission').val());
             formData.append('count', $('#count').val());
@@ -238,13 +234,13 @@ if (empty($_SESSION)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please enter car name',
+                text: 'Please enter car part name',
             });
         } else if (color == "" || color == undefined) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please enter car color',
+                text: 'Please enter car part color',
             });
         } else if (file == "" || file == undefined) {
             Swal.fire({
@@ -256,7 +252,7 @@ if (empty($_SESSION)) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Please add car price',
+                text: 'Please add car part price',
             });
         }
     }

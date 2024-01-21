@@ -11,7 +11,7 @@
     echo '<meta http-equiv="refresh" content="0;url=listProducts.php">';
     exit();
 } 
-if ($_SESSION['userdata'][0]['role']!='admin') {
+if ($_SESSION['userdata'][0]['role']!='superAdmin') {
     echo '<meta http-equiv="refresh" content="0;url=listProducts.php">';
     exit();
 }
@@ -51,8 +51,8 @@ if ($_SESSION['userdata'][0]['role']!='admin') {
             <label for="role">Select the role</label>
             <select id="role" class="form-control">
                 <option value="">Select the role</option>
+                <option value="superAdmin">Super Admin</option>
                 <option value="admin">Admin</option>
-                <option value="client">Client</option>
 
             </select>
         </div>
