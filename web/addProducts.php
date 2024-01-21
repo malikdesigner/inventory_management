@@ -99,7 +99,7 @@ if (empty($_SESSION)) {
             </select>
         </div>
 
-        <div class="form-group mb-5">
+        <!-- <div class="form-group mb-5">
             <label for="mileage"> Mileage</label>
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -107,7 +107,7 @@ if (empty($_SESSION)) {
                 </div>
                 <input class="form-control" type="text" id="mileage" placeholder="Enter car part mileage" />
             </div>
-        </div>
+        </div> -->
         <div class="form-group mb-5">
             <label for="price"> Price</label>
             <div class="input-group">

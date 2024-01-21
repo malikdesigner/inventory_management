@@ -99,12 +99,12 @@ $products = getAllProducts();
                                 <th><strong>Id</strong></th>
 
                                 <th><strong>Name </strong></th>
-                                <th><strong>Mileage </strong></th>
+                                <!-- <th><strong>Mileage </strong></th> -->
 
                                 <th><strong>Variant </strong></th>
                                 <th><strong>Color </strong></th>
                                 <th><strong>Price</strong></th>
-                                <th><strong>Transmission</strong></th>
+                                <th><strong>Car</strong></th>
                                 <th><strong>Count</strong></th>
                                 <th colspan="2"> Action </th>
                             </tr>
